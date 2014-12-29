@@ -40,16 +40,6 @@ class Window(Form, Base):
         removeAi = self.removeAiButton.isChecked()
         for node in self.materials():
             
-            try: colorInput = node.color.inputs(plugs = True)[0]
-            except: pass
-            try: ksColorInput = node.KsColor.inputs(plugs = True)[0]
-            except: pass
-            try: normalCamInput = node.normalCamera.inputs(plugs = True)[0]
-            except: pass
-            
-            if not colorInput and not ksColorInput and not normalCamInput:
-                continue
-            
             name = str(node)
             newName = name.replace('aiStandard', 'VRayMtl')
             vraycmd = 'createRenderNodeCB -asShader "surfaceShader" VRayMtl ""'
@@ -69,5 +59,5 @@ class Window(Form, Base):
             if removeAi:
                 pc.delete(node)
             else:
-                pc.rename(str(node)+'tempNode')
+                pc.rename(node, str(node)+'tempNode')
             pc.rename(vrayMtl, newName)
