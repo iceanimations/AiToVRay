@@ -34,7 +34,7 @@ class Window(Form, Base):
                         materials.append(mtrl)
         if not materials:
             pc.warning('No selection or no "aiStandard" found in the selection')
-        return materials
+        return list(set(materials))
         
     def create(self):
         removeAi = self.removeAiButton.isChecked()
