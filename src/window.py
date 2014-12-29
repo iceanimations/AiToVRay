@@ -1,8 +1,7 @@
-import site
-site.addsitedir(r"R:\Pipe_Repo\Users\Qurban\utilities")
 from uiContainer import uic
 from PyQt4.QtGui import *
 from PyQt4.QtCore import Qt
+import qtify_maya_window as qtfy
 
 import os.path as osp
 import sys
